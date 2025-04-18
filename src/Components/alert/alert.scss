@@ -1,0 +1,71 @@
+// Error (أحمر فاتح شيك)
+$error-color: #ff4d6d;
+$error-border: rgba(255, 77, 109, 0.6);
+$error-bg: rgba(255, 77, 109, 0.1);
+
+// Success (أخضر ناعم)
+$success-color: #4caf50;
+$success-border: rgba(76, 175, 80, 0.6);
+$success-bg: rgba(76, 175, 80, 0.1);
+
+// Info (أزرق سماوي أنيق)
+$info-color: #00bcd4;
+$info-border: rgba(0, 188, 212, 0.6);
+$info-bg: rgba(0, 188, 212, 0.1);
+
+// Warning (ذهبي مائل للبرتقالي)
+$warning-color: #ff9800;
+$warning-border: rgba(255, 152, 0, 0.6);
+$warning-bg: rgba(255, 152, 0, 0.1);
+
+
+// 🌐 Base
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.app {
+  padding: 1rem;
+}
+
+p {
+  margin-top: 1.5rem;
+  font-size: 1.1rem;
+  line-height: 1.5rem;
+  font-weight: 500;
+}
+
+.cancel {
+  cursor: pointer;
+}
+
+// ⚠️ Alert Mixin
+@mixin alert($name, $header , $border-color, $bg-color, $text-color) {
+  .#{$name} {
+    border: 2px solid $border-color;
+    border-radius: 5px;
+    padding: 1rem;
+    background-color: $bg-color;
+    color: $text-color;
+    margin-bottom: 10px;
+  }
+
+  .#{$name} .#{$header} {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .#{$name} .title {
+    display: flex;
+    justify-content: center;
+  }
+}
+
+// ✅ Use mixin for each alert type
+@include alert("alert-danger", "danger-header" ,  $error-border, $error-bg, $error-color);
+@include alert("alert-success", "success-header" , $success-border, $success-bg, $success-color);
+@include alert("alert-info", "info-header" , $info-border, $info-bg, $info-color);
+@include alert("alert-warning", "warning-header" , $warning-border, $warning-bg, $warning-color);
