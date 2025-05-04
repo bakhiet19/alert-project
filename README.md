@@ -36,7 +36,7 @@ src/
 └── main.tsx
 
 🙋 Author : 
-Developed with ❤️ by
+Developed with ❤️ by Bakhit Mohamad
 
 
 📸 Preview :
